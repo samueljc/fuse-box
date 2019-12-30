@@ -1,4 +1,3 @@
-import { IPackageInformation, IPathInformation } from "./PathMaster";
 import { WorkFlowContext } from "./WorkflowContext";
 import { ensurePublicExtension, ensureFuseBoxPath } from "../Utils";
 import { Config } from "../Config";
@@ -22,6 +21,20 @@ export interface INodeModuleRequire {
 	target?: string;
 }
 
+export interface IPackageInformation {
+	name: string;
+	missing?: boolean;
+	bundleData?: BundleData;
+	entry: string;
+	version: string;
+	jsNext?: boolean;
+	root: string;
+	entryRoot: string;
+	custom: boolean;
+	browserOverrides?: any;
+	customBelongsTo?: string;
+}
+
 export interface IPathInformation {
 	fuseBoxAlias?: string;
 	overrideStatement?: { key: string; value: string };
@@ -36,20 +49,6 @@ export interface IPathInformation {
 	fuseBoxPath?: string;
 	params?: Map<string, string>;
 	absPath?: string;
-}
-
-export interface IPackageInformation {
-	name: string;
-	missing?: boolean;
-	bundleData?: BundleData;
-	entry: string;
-	version: string;
-	jsNext?: boolean;
-	root: string;
-	entryRoot: string;
-	custom: boolean;
-	browserOverrides?: any;
-	customBelongsTo?: string;
 }
 
 /**
